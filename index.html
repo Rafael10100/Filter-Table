@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Digite para buscar...">
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maria</td>
+                <td>30</td>
+                <td>São Paulo</td>
+            </tr>
+            <tr>
+                <td>João</td>
+                <td>25</td>
+                <td>Rio de Janeiro</td>
+            </tr>
+            <tr>
+    <td>Pedro</td>
+    <td>37</td>
+    <td>Recife</td>
+</tr>
+<tr>
+    <td>Luis</td>
+    <td>18</td>
+    <td>Rio de Janeiro</td>
+</tr>
+<tr>
+    <td>Marcos</td>
+    <td>29</td>
+    <td>São Paulo</td>
+</tr>
+<tr>
+    <td>Jessica</td>
+    <td>25</td>
+    <td>Belo Horionte</td>
+</tr>
+ </tbody>
+    </table>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let input = this.value.toLowerCase();
+           const rows = document.querySelectorAll('#dataTable tbody tr');
+
+            rows.forEach(function(row) {
+              let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
